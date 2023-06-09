@@ -12,9 +12,9 @@ db_name="postgres"
 
 allPeers="";
 
-for i in $(seq 0 $tessera_nodes); do allPeers="$allPeers,{ \"url\": \"http://$host_ip:900$i/\" }";done; allPeers=${allPeers:1}
+for i in $(seq 0 $(expr $tessera_nodes - 1)); do allPeers="$allPeers,{ \"url\": \"http://$host_ip:900$i/\" }";done; allPeers=${allPeers:1}
 
-for i in $(seq 0 $tessera_nodes); 
+for i in $(seq 0 $(expr $tessera_nodes - 1)); 
     do 
         
         # Create tessera log file of Node

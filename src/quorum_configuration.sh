@@ -26,7 +26,7 @@ for f in $matches; do all=$all,"\"enode://$f@$host_ip:3030$ITER?discport=0&raftp
 echo "[$all]" > static-nodes.json
 cp static-nodes.json permissioned-nodes.json
 
-for i in $(seq 0 $quorum_nodes); 
+for i in $(seq 0 $(expr $quorum_nodes - 1)); 
     do 
         mkdir -p $home/QBFT-Network/Node-$i/data/keystore
         cp $home/QBFT-Network/artifacts/goQuorum/static-nodes.json $home/QBFT-Network/artifacts/goQuorum/genesis.json $home/QBFT-Network/Node-$i/data/
